@@ -24,12 +24,18 @@ class ServDmsController extends AbstractController
     public function accueil(Request $request): Response
     {
         //récupération des info du formulaire :
-        $email = $request->request->get("email");
+        $login = $request->request->get("login");
         $mdp = $request->request->get("mdp");
+        if ($login=="root" && $mdp=="toor"){
+            $message="ok";
+        }else {
+            $message="pas ok";
+        }
         return $this->render('serv_dms/accueil.html.twig', [
             'controller_name' => 'ServDmsController',
-            'email' => $email,
+            'login' => $login,
             'mdp' => $mdp,
+            'message' => $message,
         ]);
     }
 }
