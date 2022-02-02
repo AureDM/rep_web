@@ -27,9 +27,9 @@ class ServDmsController extends AbstractController
         $login = $request->request->get("login");
         $mdp = $request->request->get("mdp");
         if ($login=="root" && $mdp=="toor"){
-            $message="ok";
+            $message="ok ❕ ";
         }else {
-            $message="pas ok";
+            $message="pas ok ❗️ ";
         }
         return $this->render('serv_dms/accueil.html.twig', [
             'controller_name' => 'ServDmsController',
