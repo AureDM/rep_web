@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ServDmsController extends AbstractController
 {
@@ -21,7 +22,7 @@ class ServDmsController extends AbstractController
     /**
      * @Route("/accueil", name="accueil")
      */
-    public function accueil(Request $request): Response
+    public function accueil(Request $request,EntityManagerInterface $manager): Response
     {
         //récupération des info du formulaire :
         $login = $request->request->get("login");
