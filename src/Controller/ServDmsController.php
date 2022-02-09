@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Utilisateurs;
 
 class ServDmsController extends AbstractController
 {
@@ -27,10 +28,16 @@ class ServDmsController extends AbstractController
         //récupération des info du formulaire :
         $login = $request->request->get("login");
         $mdp = $request->request->get("mdp");
-        if ($login=="root" && $mdp=="toor"){
-            $message="mot de passe valide ❕ ";
+        $reponse = $manager -> getRepository(Utilisateurs :: class) -> findOneBy([ 'login' => $login]);
+        if ($reponse==NULL){
+            $message="utilisateurs inconnu ";
         }else {
-            $message="mot de passe incorrect ❕  ";
+            $code = $reponse -> getpassword();
+            if (password_verify($mdp,$code)){
+                $message="acces autorise";
+            }else {
+                $message="mot de passe incorrect ❕  ";
+            }
         }
         return $this->render('serv_dms/accueil.html.twig', [
             'controller_name' => 'ServDmsController',
@@ -38,5 +45,37 @@ class ServDmsController extends AbstractController
             'mdp' => $mdp,
             'message' => $message,
         ]);
+    }
+        /**
+     * @Route("/newUsers", name="newUsers")
+     */
+    public function newUsers(): Response
+    {
+        return $this->render('serv_dms/newUsers.html.twig', [
+            'controller_name' => 'ServDmsController',
+        ]);
+    }
+            /**
+     * @Route("/insertUser", name="insertUser")
+     */
+    public function insertUser(Request $request,EntityManagerInterface $manager): Response
+    {
+        $login = $request->request->get("login");
+        $mdp = $request->request->get("mdp");
+        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+        $monUtilisateur = new Utilisateurs ();
+        $monUtilisateur -> setLogin($login);
+        $monUtilisateur -> setPassword($mdp);
+        $manager -> persist($monUtilisateur);
+        $manager -> flush ();
+        return $this->redirectToRoute ('listeUsers');
+    }
+     /**
+     * @Route("/listeUsers", name="listeUsers")
+     */
+    public function listeUsers(Request $request,EntityManagerInterface $manager): Response
+    {
+        $mesUtilisateurs=$manager->getRepository(Utilisateurs::class)->findAll();
+        return $this->render('serv_dms/listeUsers.html.twig',['lst_utilisateurs' => $mesUtilisateurs]);
     }
 }

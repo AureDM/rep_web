@@ -16,5 +16,8 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'serv' => [[], ['_controller' => 'App\\Controller\\ServDmsController::index'], [], [['text', '/serv']], [], [], []],
     'accueil' => [[], ['_controller' => 'App\\Controller\\ServDmsController::accueil'], [], [['text', '/accueil']], [], [], []],
+    'newUsers' => [[], ['_controller' => 'App\\Controller\\ServDmsController::newUsers'], [], [['text', '/newUsers']], [], [], []],
+    'insertUser' => [[], ['_controller' => 'App\\Controller\\ServDmsController::insertUser'], [], [['text', '/insertUser']], [], [], []],
+    'listeUsers' => [[], ['_controller' => 'App\\Controller\\ServDmsController::listeUsers'], [], [['text', '/listeUsers']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
 ];

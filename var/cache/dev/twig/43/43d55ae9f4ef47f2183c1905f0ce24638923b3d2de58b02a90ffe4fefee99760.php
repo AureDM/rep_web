@@ -94,19 +94,29 @@ class __TwigTemplate_e7f8ab7bf5e5a3bd8b9c20657228a0bebdffe7df1f3a6678affd5a1f3b1
     <h1><u> Bienvenue sur le site d'Aurélien ♛ </u></h1>
 </div>
 
-<h3>
-    Login : ";
-        // line 16
-        echo twig_escape_filter($this->env, (isset($context["login"]) || array_key_exists("login", $context) ? $context["login"] : (function () { throw new RuntimeError('Variable "login" does not exist.', 16, $this->source); })()), "html", null, true);
-        echo "
-</h3>
-<br>
-<h3>
-Votre mot de passe est : <font color=\"red\"> ";
+<br> 
+
+<div class=\"card text-white bg-primary mb-3\" style=\"max-width: 15rem;\">
+  <div class=\"card-header\"><B><font color=\"#ff6700\">Login :</font></B></div>
+  <div class=\"card-body\">
+    <h4 class=\"card-title\">";
         // line 20
-        echo twig_escape_filter($this->env, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 20, $this->source); })()), "html", null, true);
-        echo "</font>
-</h3>
+        echo twig_escape_filter($this->env, (isset($context["login"]) || array_key_exists("login", $context) ? $context["login"] : (function () { throw new RuntimeError('Variable "login" does not exist.', 20, $this->source); })()), "html", null, true);
+        echo "</h4>
+  </div>
+</div>
+<div class=\"card text-white bg-danger mb-3\" style=\"max-width: 15rem;\">
+  <div class=\"card-header\"><B><font color=\"#ff6700\">Connexion : </font></B></div>
+  <div class=\"card-body\">
+    <h4 class=\"card-title\">";
+        // line 26
+        echo twig_escape_filter($this->env, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 26, $this->source); })()), "html", null, true);
+        echo "</h4>     
+  </div>
+</div>
+
+
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -128,7 +138,7 @@ Votre mot de passe est : <font color=\"red\"> ";
 
     public function getDebugInfo()
     {
-        return array (  107 => 20,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  113 => 26,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -147,13 +157,23 @@ Votre mot de passe est : <font color=\"red\"> ";
     <h1><u> Bienvenue sur le site d'Aurélien ♛ </u></h1>
 </div>
 
-<h3>
-    Login : {{login}}
-</h3>
-<br>
-<h3>
-Votre mot de passe est : <font color=\"red\"> {{message}}</font>
-</h3>
+<br> 
+
+<div class=\"card text-white bg-primary mb-3\" style=\"max-width: 15rem;\">
+  <div class=\"card-header\"><B><font color=\"#ff6700\">Login :</font></B></div>
+  <div class=\"card-body\">
+    <h4 class=\"card-title\">{{login}}</h4>
+  </div>
+</div>
+<div class=\"card text-white bg-danger mb-3\" style=\"max-width: 15rem;\">
+  <div class=\"card-header\"><B><font color=\"#ff6700\">Connexion : </font></B></div>
+  <div class=\"card-body\">
+    <h4 class=\"card-title\">{{message}}</h4>     
+  </div>
+</div>
+
+
+
 {% endblock %}", "serv_dms/accueil.html.twig", "/home/etudrt/servDms/templates/serv_dms/accueil.html.twig");
     }
 }

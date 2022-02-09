@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste utilisateurs{% endblock %}
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1><u> Liste des utilisateurs : </u></h1>
+</div>
+
+
+<table class="table table-secondary">
+  <thead>
+    <tr>
+      <th scope="col">Login</th>
+      <th scope="col">Mot de passe</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for un_utilisateur in lst_utilisateurs %}
+    <tr class="table-light">
+      <th scope="row">{{ un_utilisateur.login }} </th>
+      <td>{{ un_utilisateur.password }}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+
+
+
+{% endblock %}

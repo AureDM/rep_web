@@ -15,6 +15,9 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/serv' => [[['_route' => 'serv', '_controller' => 'App\\Controller\\ServDmsController::index'], null, null, null, false, false, null]],
         '/accueil' => [[['_route' => 'accueil', '_controller' => 'App\\Controller\\ServDmsController::accueil'], null, null, null, false, false, null]],
+        '/newUsers' => [[['_route' => 'newUsers', '_controller' => 'App\\Controller\\ServDmsController::newUsers'], null, null, null, false, false, null]],
+        '/insertUser' => [[['_route' => 'insertUser', '_controller' => 'App\\Controller\\ServDmsController::insertUser'], null, null, null, false, false, null]],
+        '/listeUsers' => [[['_route' => 'listeUsers', '_controller' => 'App\\Controller\\ServDmsController::listeUsers'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
