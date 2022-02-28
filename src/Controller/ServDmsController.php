@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Utilisateurs;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ServDmsController extends AbstractController
 {
@@ -23,7 +24,7 @@ class ServDmsController extends AbstractController
     /**
      * @Route("/accueil", name="accueil")
      */
-    public function accueil(Request $request,EntityManagerInterface $manager): Response
+    public function accueil(Request $request,EntityManagerInterface $manager,SessionInterface $session): Response
     {
         //récupération des info du formulaire :
         $login = $request->request->get("login");
@@ -31,12 +32,15 @@ class ServDmsController extends AbstractController
         $reponse = $manager -> getRepository(Utilisateurs :: class) -> findOneBy([ 'login' => $login]);
         if ($reponse==NULL){
             $message="utilisateurs inconnu ";
+            $session -> clear();
         }else {
             $code = $reponse -> getpassword();
             if (password_verify($mdp,$code)){
                 $message="acces autorise";
+                $session -> set('identifiant',$reponse -> getId());
             }else {
                 $message="mot de passe incorrect ❕  ";
+                $session -> clear();
             }
         }
         return $this->render('serv_dms/accueil.html.twig', [
@@ -73,9 +77,34 @@ class ServDmsController extends AbstractController
      /**
      * @Route("/listeUsers", name="listeUsers")
      */
-    public function listeUsers(Request $request,EntityManagerInterface $manager): Response
+    public function listeUsers(Request $request,EntityManagerInterface $manager, SessionInterface $session): Response
     {
-        $mesUtilisateurs=$manager->getRepository(Utilisateurs::class)->findAll();
-        return $this->render('serv_dms/listeUsers.html.twig',['lst_utilisateurs' => $mesUtilisateurs]);
+        $vs = $session -> get('identifiant');
+        if ($vs == NULL)
+            return $this-> redirectToRoute('serv');
+        else{
+            $mesUtilisateurs=$manager->getRepository(Utilisateurs::class)->findAll();
+            return $this->render('serv_dms/listeUsers.html.twig',['lst_utilisateurs' => $mesUtilisateurs]);
+        }
+    }
+
+    
+    /**
+    * @Route("/supprimerUtilisateur/{id}",name="supprimer_Utilisateur")
+    */
+    public function supprimerUtilisateur(EntityManagerInterface $manager,Utilisateurs $editutil): Response {
+        $manager->remove($editutil);
+        $manager->flush();
+        // Affiche de nouveau la liste des utilisateurs
+        return $this->redirectToRoute ('listeUsers');
+    }
+ 
+    /**
+    * @Route("/decoUtilisateur",name="deco_Utilisateur")
+    */
+    public function decoUtilisateur(EntityManagerInterface $manager, SessionInterface $session): Response {
+        $session->clear();
+        // Affiche de nouveau la liste des utilisateurs
+        return $this->redirectToRoute ('serv');
     }
 }

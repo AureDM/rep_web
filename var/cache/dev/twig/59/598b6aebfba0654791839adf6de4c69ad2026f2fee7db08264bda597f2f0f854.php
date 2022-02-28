@@ -82,6 +82,9 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
         <li class=\"nav-item\">
           <a class=\"nav-link\" href=\"/listeUsers\">Listes Utilisateurs</a>
         </li>
+        <li class=\"nav-item\">
+          <a class=\"nav-link\" href=\"/decoUtilisateur\">Déconnexion</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -89,9 +92,9 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
 
 
         ";
-        // line 40
-        $this->displayBlock('body', $context, $blocks);
         // line 43
+        $this->displayBlock('body', $context, $blocks);
+        // line 46
         echo "    </body>
 </html>
 ";
@@ -168,7 +171,7 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
 
     }
 
-    // line 40
+    // line 43
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -178,8 +181,8 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 41
-        echo "            
+        // line 44
+        echo "
         ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -196,7 +199,7 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
 
     public function getDebugInfo()
     {
-        return array (  182 => 41,  172 => 40,  159 => 14,  149 => 13,  136 => 10,  126 => 9,  107 => 5,  95 => 43,  93 => 40,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
+        return array (  185 => 44,  175 => 43,  162 => 14,  152 => 13,  139 => 10,  129 => 9,  110 => 5,  98 => 46,  96 => 43,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -234,6 +237,9 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
         <li class=\"nav-item\">
           <a class=\"nav-link\" href=\"/listeUsers\">Listes Utilisateurs</a>
         </li>
+        <li class=\"nav-item\">
+          <a class=\"nav-link\" href=\"/decoUtilisateur\">Déconnexion</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -241,7 +247,7 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
 
 
         {% block body %}
-            
+
         {% endblock %}
     </body>
 </html>

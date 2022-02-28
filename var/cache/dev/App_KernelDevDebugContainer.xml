@@ -5966,12 +5966,21 @@
         <argument key="manager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.0.j5PeL" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.iRp0C8r" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="editutil" type="service_closure" id=".errored..service_locator.iRp0C8r.App\Entity\Utilisateurs"/>
+        <argument key="manager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.rDsIiLz" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ServDmsController::accueil" type="service_closure" id=".service_locator.oiABibH"/>
+        <argument key="App\Controller\ServDmsController::decoUtilisateur" type="service_closure" id=".service_locator.oiABibH"/>
         <argument key="App\Controller\ServDmsController::insertUser" type="service_closure" id=".service_locator.oiABibH"/>
         <argument key="App\Controller\ServDmsController::listeUsers" type="service_closure" id=".service_locator.oiABibH"/>
+        <argument key="App\Controller\ServDmsController::supprimerUtilisateur" type="service_closure" id=".service_locator.iRp0C8r"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -5979,8 +5988,10 @@
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
         <argument key="App\Controller\ServDmsController:accueil" type="service_closure" id=".service_locator.oiABibH"/>
+        <argument key="App\Controller\ServDmsController:decoUtilisateur" type="service_closure" id=".service_locator.oiABibH"/>
         <argument key="App\Controller\ServDmsController:insertUser" type="service_closure" id=".service_locator.oiABibH"/>
         <argument key="App\Controller\ServDmsController:listeUsers" type="service_closure" id=".service_locator.oiABibH"/>
+        <argument key="App\Controller\ServDmsController:supprimerUtilisateur" type="service_closure" id=".service_locator.iRp0C8r"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -6496,12 +6507,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.0.j5PeL"/>
+      <argument type="service" id=".service_locator.rDsIiLz"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.0.j5PeL"/>
+      <argument type="service" id=".service_locator.rDsIiLz"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -6519,6 +6530,7 @@
     </service>
     <service id=".errored..service_locator.KfwZsne.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".errored..service_locator.iRp0C8r.App\Entity\Utilisateurs" class="App\Entity\Utilisateurs"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -7371,7 +7383,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.0.j5PeL"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.rDsIiLz"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7391,7 +7403,8 @@
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.w1Z2bRW" alias=".service_locator.0.j5PeL"/>
+    <service id=".service_locator.X2S020_" alias=".service_locator.iRp0C8r"/>
+    <service id=".service_locator.QD9JXOE" alias=".service_locator.rDsIiLz"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.Za9MpXe" alias=".service_locator.y4dplYt"/>
     <service id=".service_locator.4hi2aOY" alias=".service_locator.bBRwv06"/>
@@ -7420,6 +7433,7 @@
     <service id=".service_locator._5g_Wvc" alias=".service_locator.KfwZsne"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
     <service id=".service_locator.fyH.VEA" alias=".service_locator.oiABibH"/>
+    <service id=".service_locator.z2E3mLw" alias=".service_locator.iRp0C8r"/>
     <service id=".service_locator.NK827YO" alias=".service_locator.GNc8e5B"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>
     <service id=".service_locator.9YCWxeJ" alias=".service_locator.dw8O4oN"/>

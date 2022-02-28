@@ -19,5 +19,7 @@ return [
     'newUsers' => [[], ['_controller' => 'App\\Controller\\ServDmsController::newUsers'], [], [['text', '/newUsers']], [], [], []],
     'insertUser' => [[], ['_controller' => 'App\\Controller\\ServDmsController::insertUser'], [], [['text', '/insertUser']], [], [], []],
     'listeUsers' => [[], ['_controller' => 'App\\Controller\\ServDmsController::listeUsers'], [], [['text', '/listeUsers']], [], [], []],
+    'supprimer_Utilisateur' => [['id'], ['_controller' => 'App\\Controller\\ServDmsController::supprimerUtilisateur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/supprimerUtilisateur']], [], [], []],
+    'deco_Utilisateur' => [[], ['_controller' => 'App\\Controller\\ServDmsController::decoUtilisateur'], [], [['text', '/decoUtilisateur']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
 ];
