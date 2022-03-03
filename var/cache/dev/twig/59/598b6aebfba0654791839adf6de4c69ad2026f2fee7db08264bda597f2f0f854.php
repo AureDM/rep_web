@@ -83,6 +83,12 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
           <a class=\"nav-link\" href=\"/listeUsers\">Listes Utilisateurs</a>
         </li>
         <li class=\"nav-item\">
+          <a class=\"nav-link\" href=\"/ajoueFichier\">Ajouter un fichier</a>
+        </li>
+        <li class=\"nav-item\">
+          <a class=\"nav-link\" href=\"/listFichier\">Liste de fichier</a>
+        </li>
+        <li class=\"nav-item\">
           <a class=\"nav-link\" href=\"/decoUtilisateur\">Déconnexion</a>
         </li>
       </ul>
@@ -92,9 +98,9 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
 
 
         ";
-        // line 43
+        // line 49
         $this->displayBlock('body', $context, $blocks);
-        // line 46
+        // line 52
         echo "    </body>
 </html>
 ";
@@ -171,7 +177,7 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
 
     }
 
-    // line 43
+    // line 49
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -181,7 +187,7 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 44
+        // line 50
         echo "
         ";
         
@@ -199,7 +205,7 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
 
     public function getDebugInfo()
     {
-        return array (  185 => 44,  175 => 43,  162 => 14,  152 => 13,  139 => 10,  129 => 9,  110 => 5,  98 => 46,  96 => 43,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
+        return array (  191 => 50,  181 => 49,  168 => 14,  158 => 13,  145 => 10,  135 => 9,  116 => 5,  104 => 52,  102 => 49,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -236,6 +242,12 @@ class __TwigTemplate_aab1e4166329df4c08d5c1457f00d3bea2cafab8f1b6724d5d75bbe96af
         </li>
         <li class=\"nav-item\">
           <a class=\"nav-link\" href=\"/listeUsers\">Listes Utilisateurs</a>
+        </li>
+        <li class=\"nav-item\">
+          <a class=\"nav-link\" href=\"/ajoueFichier\">Ajouter un fichier</a>
+        </li>
+        <li class=\"nav-item\">
+          <a class=\"nav-link\" href=\"/listFichier\">Liste de fichier</a>
         </li>
         <li class=\"nav-item\">
           <a class=\"nav-link\" href=\"/decoUtilisateur\">Déconnexion</a>

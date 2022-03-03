@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Utilisateurs;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Entity\Documents;
 
 class ServDmsController extends AbstractController
 {
@@ -106,5 +107,42 @@ class ServDmsController extends AbstractController
         $session->clear();
         // Affiche de nouveau la liste des utilisateurs
         return $this->redirectToRoute ('serv');
+    }
+
+        /**
+     * @Route("/trait_Fichier", name="trait_Fichier")
+     */
+    public function trait_Fichier(): Response
+    {
+        $tmp_name = $_FILES["ajoueFichier"]["tmp_name"];
+        $name = basename($_FILES["ajoueFichier"]["name"]);
+        move_uploaded_file($tmp_name, "/home/etudrt/servDms/public/$name");
+     
+        return $this->render('serv_dms/ajoueFichier.html.twig');
+    }
+      /**
+     * @Route("/ajoueFichier", name="ajoueFichier")
+     */
+    public function ajouefichier(): Response
+    {
+        return $this->render('serv_dms/ajoueFichier.html.twig');
+    }
+
+       /**
+     * @Route("/listFichier", name="listFichier")
+     */
+    public function listfichier(): Response
+    {
+        return $this->render('serv_dms/listFichier.html.twig');
+    }
+
+     /**
+    * @Route("/supprimerFichier/{id}",name="supprimer_Fichier")
+    */
+    public function supprimerFichier(EntityManagerInterface $manager,Utilisateurs $editutil): Response {
+        $manager->remove($editutil);
+        $manager->flush();
+        // Affiche de nouveau la liste des utilisateurs
+        return $this->redirectToRoute ('listFichier');
     }
 }

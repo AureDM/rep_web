@@ -21,5 +21,8 @@ return [
     'listeUsers' => [[], ['_controller' => 'App\\Controller\\ServDmsController::listeUsers'], [], [['text', '/listeUsers']], [], [], []],
     'supprimer_Utilisateur' => [['id'], ['_controller' => 'App\\Controller\\ServDmsController::supprimerUtilisateur'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/supprimerUtilisateur']], [], [], []],
     'deco_Utilisateur' => [[], ['_controller' => 'App\\Controller\\ServDmsController::decoUtilisateur'], [], [['text', '/decoUtilisateur']], [], [], []],
+    'trait_Fichier' => [[], ['_controller' => 'App\\Controller\\ServDmsController::trait_Fichier'], [], [['text', '/trait_Fichier']], [], [], []],
+    'ajoueFichier' => [[], ['_controller' => 'App\\Controller\\ServDmsController::ajouefichier'], [], [['text', '/ajoueFichier']], [], [], []],
+    'listFichier' => [[], ['_controller' => 'App\\Controller\\ServDmsController::listfichier'], [], [['text', '/listFichier']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
 ];

@@ -19,6 +19,9 @@ return [
         '/insertUser' => [[['_route' => 'insertUser', '_controller' => 'App\\Controller\\ServDmsController::insertUser'], null, null, null, false, false, null]],
         '/listeUsers' => [[['_route' => 'listeUsers', '_controller' => 'App\\Controller\\ServDmsController::listeUsers'], null, null, null, false, false, null]],
         '/decoUtilisateur' => [[['_route' => 'deco_Utilisateur', '_controller' => 'App\\Controller\\ServDmsController::decoUtilisateur'], null, null, null, false, false, null]],
+        '/trait_Fichier' => [[['_route' => 'trait_Fichier', '_controller' => 'App\\Controller\\ServDmsController::trait_Fichier'], null, null, null, false, false, null]],
+        '/ajoueFichier' => [[['_route' => 'ajoueFichier', '_controller' => 'App\\Controller\\ServDmsController::ajouefichier'], null, null, null, false, false, null]],
+        '/listFichier' => [[['_route' => 'listFichier', '_controller' => 'App\\Controller\\ServDmsController::listfichier'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
